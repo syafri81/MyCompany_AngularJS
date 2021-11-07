@@ -1,0 +1,167 @@
+﻿body {
+    /*background-color:#CCDBEF;*/
+    background-image:url(../Content/Bg/background.bmp);
+    background-position: 0 0%, 30% 30%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    /*opacity:0.9;*/
+    /*-webkit-transform: rotate(30deg);
+    -moz-transform: rotate(30deg);
+    -ms-transform: rotate(30deg);
+    -o-transform: rotate(30deg);
+    transform: rotate(30deg);*/
+    padding-top: 50px;
+    padding-bottom: 20px;
+    font-size:14px;
+    font-weight:600;
+    font-family:'Calibri';
+    overflow-x:hidden;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+h1, h2, h3 {
+    margin-top: 15px;
+    margin-bottom: 10px;
+}
+a{
+    color:white;
+}
+.nav-pills > li > a {
+    border-radius: 0px;
+}
+.navbar-inverse .navbar-nav > li > a {
+    color: black;
+    /*color: #999999;*/
+}
+.navbar-inverse .navbar-brand {
+    color:black;
+    /*color: #999999;*/
+}
+
+.jumbotron, .panel-title
+{
+    font-size:14px;
+}
+.form-horizontal .control-label, .form-horizontal .radio, .form-horizontal .radio-inline, .form-horizontal .checkbox-inline
+{
+    padding-top:0px;
+}
+.form-group {
+    margin-bottom: 5px;
+}
+.fa-1halfx {
+    font-size: 1.5em;
+}
+
+.body-zero {
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+.box_button {
+    border-radius:0px;
+}
+.margin-top-10 
+{
+    margin-top:10px;
+}
+.margin-top-15
+{
+    margin-top:15px;
+}
+.margin-bottom-15
+{
+    margin-bottom:15px;
+}
+.panel-body
+{
+    padding: 10px 15px;
+}
+.btn-crud
+{
+    padding: 3px 4px 0px 4px;
+}
+.alert-error
+{
+    padding:5px;
+}
+.uppercase {
+    text-transform: uppercase;
+}
+.dropdown-menu
+{
+    width:46%;
+    max-width:46%;
+}
+table th
+{
+    font-size:16px;
+}
+table td
+{
+    font-size:14px;
+}
+.table thead > tr > th {
+    vertical-align: middle;
+    border-bottom: 2px solid #dddddd;
+}
+.table thead > tr > th, .table tbody > tr > th, .table tfoot > tr > th, .table thead > tr > td {
+    padding: 8px 10px;
+    line-height: 1.428571429;
+    vertical-align: middle;
+}
+.table tbody > tr > td, .table tfoot > tr > td {
+    padding: 5px 10px;
+    line-height: 1.428571429;
+    vertical-align: middle;
+    border-top: 1px solid #eeeeee;
+    border-bottom: 1px solid #eeeeee;
+}
+.btn {
+    margin:0px;
+}
+.modal-dialog {
+    padding-top:50px;
+}
+.modal-header
+{
+    padding:5px 15px;
+}
+.alert
+{
+    padding:10px;
+}
+.nav > li > a {
+    position: relative;
+    display: block;
+    padding: 7px 15px;
+}
+.mytable
+{
+    background-color: #009688;color:white;font-weight:600;
+}
+.home-image
+{
+    width:150px;
+    height:150px;
+}
+
