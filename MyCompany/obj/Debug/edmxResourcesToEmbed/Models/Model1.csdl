@@ -1,0 +1,224 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="MyCompanyModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="inPurchase">
+    <Key>
+      <PropertyRef Name="IDPurchase" />
+    </Key>
+    <Property Name="IDPurchase" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IDFaktur" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="IDPartner" Type="Int32" Nullable="false" />
+    <Property Name="Amount" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="Created" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="CreatedBy" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="inPurchaseDetail">
+    <Key>
+      <PropertyRef Name="IDDetail" />
+      <PropertyRef Name="IDPurchase" />
+      <PropertyRef Name="IDProduct" />
+      <PropertyRef Name="Volume" />
+      <PropertyRef Name="Price" />
+      <PropertyRef Name="Amount" />
+      <PropertyRef Name="Created" />
+      <PropertyRef Name="CreatedBy" />
+    </Key>
+    <Property Name="IDDetail" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IDPurchase" Type="Int64" Nullable="false" />
+    <Property Name="IDProduct" Type="Int32" Nullable="false" />
+    <Property Name="Volume" Type="Int32" Nullable="false" />
+    <Property Name="Price" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="Amount" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="Created" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="CreatedBy" Type="Int32" Nullable="false" />
+    <Property Name="Modified" Type="DateTime" Precision="3" />
+    <Property Name="ModifiedBy" Type="Int32" />
+  </EntityType>
+  <EntityContainer Name="MyEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="inPurchase" EntityType="Self.inPurchase" />
+    <EntitySet Name="inPurchaseDetail" EntityType="Self.inPurchaseDetail" />
+    <EntitySet Name="tblPartner" EntityType="MyCompanyModel.tblPartner" />
+    <EntitySet Name="tblUser" EntityType="MyCompanyModel.tblUser" />
+    <EntitySet Name="inExpend" EntityType="MyCompanyModel.inExpend" />
+    <EntitySet Name="tblCampaign" EntityType="MyCompanyModel.tblCampaign" />
+    <EntitySet Name="inExpendDetail" EntityType="MyCompanyModel.inExpendDetail" />
+    <EntitySet Name="tblProductHistory" EntityType="MyCompanyModel.tblProductHistory" />
+    <EntitySet Name="tblProduct" EntityType="MyCompanyModel.tblProduct" />
+    <EntitySet Name="View_Product" EntityType="MyCompanyModel.View_Product" />
+    <EntitySet Name="tblSupplier" EntityType="MyCompanyModel.tblSupplier" />
+    <EntitySet Name="View_Expend" EntityType="MyCompanyModel.View_Expend" />
+    <EntitySet Name="View_ExpendDetail" EntityType="MyCompanyModel.View_ExpendDetail" />
+  </EntityContainer>
+  <EntityType Name="tblPartner">
+    <Key>
+      <PropertyRef Name="IDPartner" />
+    </Key>
+    <Property Name="IDPartner" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IDNumber" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="PhoneNumber" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Address1" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="Address2" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="Address3" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
+    <Property Name="Created" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="CreatedBy" Type="Int32" Nullable="false" />
+    <Property Name="Modified" Type="DateTime" Precision="3" />
+    <Property Name="ModifiedBy" Type="Int32" />
+  </EntityType>
+  <EntityType Name="tblUser">
+    <Key>
+      <PropertyRef Name="IDUser" />
+    </Key>
+    <Property Name="IDUser" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserName" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="DisplayName" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="Password" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Email" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="UserLevel" Type="Int32" Nullable="false" />
+    <Property Name="CampaignID" Type="Int32" Nullable="false" />
+    <Property Name="Created" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="CreatedBy" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="inExpend">
+    <Key>
+      <PropertyRef Name="IDExpend" />
+    </Key>
+    <Property Name="IDExpend" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IDFaktur" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="IDSupplier" Type="Int32" Nullable="false" />
+    <Property Name="Amount" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+    <Property Name="Created" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="CreatedBy" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tblCampaign">
+    <Key>
+      <PropertyRef Name="IDCampaign" />
+    </Key>
+    <Property Name="IDCampaign" Type="Int32" Nullable="false" />
+    <Property Name="CampaignName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <EntityType Name="inExpendDetail">
+    <Key>
+      <PropertyRef Name="IDDetail" />
+    </Key>
+    <Property Name="IDDetail" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IDExpend" Type="Int64" Nullable="false" />
+    <Property Name="IDProduct" Type="Int32" Nullable="false" />
+    <Property Name="Volume" Type="Int32" Nullable="false" />
+    <Property Name="Price" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+    <Property Name="Amount" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+    <Property Name="Created" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="CreatedBy" Type="Int32" Nullable="false" />
+    <Property Name="Modified" Type="DateTime" Precision="3" />
+    <Property Name="ModifiedBy" Type="Int32" />
+  </EntityType>
+  <EntityType Name="tblProductHistory">
+    <Key>
+      <PropertyRef Name="IDHistory" />
+    </Key>
+    <Property Name="IDHistory" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IDProduct" Type="Int32" Nullable="false" />
+    <Property Name="Price" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+    <Property Name="Created" Type="DateTime" Nullable="false" Precision="3" />
+  </EntityType>
+  <EntityType Name="tblProduct">
+    <Key>
+      <PropertyRef Name="IDProduct" />
+    </Key>
+    <Property Name="IDProduct" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ProductName" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="Weight" Type="Int32" />
+    <Property Name="Size" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="Price" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
+    <Property Name="IDSupplier" Type="Int32" Nullable="false" />
+    <Property Name="IDCampaign" Type="Int32" Nullable="false" />
+    <Property Name="Created" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="CreatedBy" Type="Int32" Nullable="false" />
+    <Property Name="Modified" Type="DateTime" Precision="3" />
+    <Property Name="ModifiedBy" Type="Int32" />
+  </EntityType>
+  <EntityType Name="View_Product">
+    <Key>
+      <PropertyRef Name="IDProduct" />
+      <PropertyRef Name="ProductName" />
+      <PropertyRef Name="Price" />
+      <PropertyRef Name="CampaignName" />
+      <PropertyRef Name="SupplierName" />
+      <PropertyRef Name="PhoneNumber" />
+      <PropertyRef Name="IDSupplier" />
+      <PropertyRef Name="IDCampaign" />
+      <PropertyRef Name="IsActive" />
+    </Key>
+    <Property Name="IDProduct" Type="Int32" Nullable="false" />
+    <Property Name="ProductName" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="Price" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+    <Property Name="Weight" Type="Int32" />
+    <Property Name="Size" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="CampaignName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="SupplierName" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="PhoneNumber" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="IDSupplier" Type="Int32" Nullable="false" />
+    <Property Name="IDCampaign" Type="Int32" Nullable="false" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tblSupplier">
+    <Key>
+      <PropertyRef Name="IDSupplier" />
+    </Key>
+    <Property Name="IDSupplier" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SupplierName" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="PhoneNumber" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
+    <Property Name="IDCampaign" Type="Int32" Nullable="false" />
+    <Property Name="Created" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="CreatedBy" Type="Int32" Nullable="false" />
+    <Property Name="Modified" Type="DateTime" Precision="3" />
+    <Property Name="ModifiedBy" Type="Int32" />
+  </EntityType>
+  <EntityType Name="View_Expend">
+    <Key>
+      <PropertyRef Name="IDExpend" />
+      <PropertyRef Name="IDFaktur" />
+      <PropertyRef Name="SupplierName" />
+      <PropertyRef Name="PhoneNumber" />
+      <PropertyRef Name="Amount" />
+      <PropertyRef Name="IDSupplier" />
+      <PropertyRef Name="Created" />
+      <PropertyRef Name="CreatedBy" />
+      <PropertyRef Name="IDCampaign" />
+      <PropertyRef Name="CampaignName" />
+    </Key>
+    <Property Name="IDExpend" Type="Int64" Nullable="false" />
+    <Property Name="IDFaktur" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="SupplierName" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="PhoneNumber" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Amount" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+    <Property Name="IDSupplier" Type="Int32" Nullable="false" />
+    <Property Name="Created" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="CreatedBy" Type="Int32" Nullable="false" />
+    <Property Name="IDCampaign" Type="Int32" Nullable="false" />
+    <Property Name="CampaignName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="View_ExpendDetail">
+    <Key>
+      <PropertyRef Name="IDDetail" />
+      <PropertyRef Name="ProductName" />
+      <PropertyRef Name="Volume" />
+      <PropertyRef Name="Price" />
+      <PropertyRef Name="Amount" />
+      <PropertyRef Name="IDExpend" />
+      <PropertyRef Name="IDProduct" />
+    </Key>
+    <Property Name="IDDetail" Type="Int64" Nullable="false" />
+    <Property Name="ProductName" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="Weight" Type="Int32" />
+    <Property Name="Size" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="Volume" Type="Int32" Nullable="false" />
+    <Property Name="Price" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+    <Property Name="Amount" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+    <Property Name="IDExpend" Type="Int64" Nullable="false" />
+    <Property Name="IDProduct" Type="Int32" Nullable="false" />
+  </EntityType>
+</Schema>

@@ -1,0 +1,284 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="MyCompanyModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="inExpend">
+    <Key>
+      <PropertyRef Name="IDExpend" />
+    </Key>
+    <Property Name="IDExpend" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IDFaktur" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="IDSupplier" Type="int" Nullable="false" />
+    <Property Name="Amount" Type="money" Nullable="false" />
+    <Property Name="Created" Type="datetime" Nullable="false" />
+    <Property Name="CreatedBy" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="inExpendDetail">
+    <Key>
+      <PropertyRef Name="IDDetail" />
+    </Key>
+    <Property Name="IDDetail" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IDExpend" Type="bigint" Nullable="false" />
+    <Property Name="IDProduct" Type="int" Nullable="false" />
+    <Property Name="Volume" Type="int" Nullable="false" />
+    <Property Name="Price" Type="money" Nullable="false" />
+    <Property Name="Amount" Type="money" Nullable="false" />
+    <Property Name="Created" Type="datetime" Nullable="false" />
+    <Property Name="CreatedBy" Type="int" Nullable="false" />
+    <Property Name="Modified" Type="datetime" />
+    <Property Name="ModifiedBy" Type="int" />
+  </EntityType>
+  <EntityType Name="inPurchase">
+    <Key>
+      <PropertyRef Name="IDPurchase" />
+    </Key>
+    <Property Name="IDPurchase" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IDFaktur" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="IDPartner" Type="int" Nullable="false" />
+    <Property Name="Amount" Type="money" Nullable="false" />
+    <Property Name="Created" Type="datetime" Nullable="false" />
+    <Property Name="CreatedBy" Type="int" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'MyCompany.dbo.inPurchaseDetail' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="inPurchaseDetail">
+    <Key>
+      <PropertyRef Name="IDDetail" />
+      <PropertyRef Name="IDPurchase" />
+      <PropertyRef Name="IDProduct" />
+      <PropertyRef Name="Volume" />
+      <PropertyRef Name="Price" />
+      <PropertyRef Name="Amount" />
+      <PropertyRef Name="Created" />
+      <PropertyRef Name="CreatedBy" />
+    </Key>
+    <Property Name="IDDetail" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IDPurchase" Type="bigint" Nullable="false" />
+    <Property Name="IDProduct" Type="int" Nullable="false" />
+    <Property Name="Volume" Type="int" Nullable="false" />
+    <Property Name="Price" Type="money" Nullable="false" />
+    <Property Name="Amount" Type="money" Nullable="false" />
+    <Property Name="Created" Type="datetime" Nullable="false" />
+    <Property Name="CreatedBy" Type="int" Nullable="false" />
+    <Property Name="Modified" Type="datetime" />
+    <Property Name="ModifiedBy" Type="int" />
+  </EntityType>
+  <EntityType Name="tblCampaign">
+    <Key>
+      <PropertyRef Name="IDCampaign" />
+    </Key>
+    <Property Name="IDCampaign" Type="int" Nullable="false" />
+    <Property Name="CampaignName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tblPartner">
+    <Key>
+      <PropertyRef Name="IDPartner" />
+    </Key>
+    <Property Name="IDPartner" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IDNumber" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="PhoneNumber" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Address1" Type="varchar" MaxLength="200" />
+    <Property Name="Address2" Type="varchar" MaxLength="200" />
+    <Property Name="Address3" Type="varchar" MaxLength="200" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
+    <Property Name="Created" Type="datetime" Nullable="false" />
+    <Property Name="CreatedBy" Type="int" Nullable="false" />
+    <Property Name="Modified" Type="datetime" />
+    <Property Name="ModifiedBy" Type="int" />
+  </EntityType>
+  <EntityType Name="tblProduct">
+    <Key>
+      <PropertyRef Name="IDProduct" />
+    </Key>
+    <Property Name="IDProduct" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ProductName" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="Weight" Type="int" />
+    <Property Name="Size" Type="varchar" MaxLength="20" />
+    <Property Name="Price" Type="money" Nullable="false" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
+    <Property Name="IDSupplier" Type="int" Nullable="false" />
+    <Property Name="IDCampaign" Type="int" Nullable="false" />
+    <Property Name="Created" Type="datetime" Nullable="false" />
+    <Property Name="CreatedBy" Type="int" Nullable="false" />
+    <Property Name="Modified" Type="datetime" />
+    <Property Name="ModifiedBy" Type="int" />
+  </EntityType>
+  <EntityType Name="tblProductHistory">
+    <Key>
+      <PropertyRef Name="IDHistory" />
+    </Key>
+    <Property Name="IDHistory" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IDProduct" Type="int" Nullable="false" />
+    <Property Name="Price" Type="money" Nullable="false" />
+    <Property Name="Created" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tblSupplier">
+    <Key>
+      <PropertyRef Name="IDSupplier" />
+    </Key>
+    <Property Name="IDSupplier" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SupplierName" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="PhoneNumber" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
+    <Property Name="IDCampaign" Type="int" Nullable="false" />
+    <Property Name="Created" Type="datetime" Nullable="false" />
+    <Property Name="CreatedBy" Type="int" Nullable="false" />
+    <Property Name="Modified" Type="datetime" />
+    <Property Name="ModifiedBy" Type="int" />
+  </EntityType>
+  <EntityType Name="tblUser">
+    <Key>
+      <PropertyRef Name="IDUser" />
+    </Key>
+    <Property Name="IDUser" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserName" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="DisplayName" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="Password" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Email" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="UserLevel" Type="int" Nullable="false" />
+    <Property Name="CampaignID" Type="int" Nullable="false" />
+    <Property Name="Created" Type="datetime" Nullable="false" />
+    <Property Name="CreatedBy" Type="int" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'MyCompany.dbo.View_Expend' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="View_Expend">
+    <Key>
+      <PropertyRef Name="IDExpend" />
+      <PropertyRef Name="IDFaktur" />
+      <PropertyRef Name="SupplierName" />
+      <PropertyRef Name="PhoneNumber" />
+      <PropertyRef Name="Amount" />
+      <PropertyRef Name="IDSupplier" />
+      <PropertyRef Name="Created" />
+      <PropertyRef Name="CreatedBy" />
+      <PropertyRef Name="IDCampaign" />
+      <PropertyRef Name="CampaignName" />
+    </Key>
+    <Property Name="IDExpend" Type="bigint" Nullable="false" />
+    <Property Name="IDFaktur" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="SupplierName" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="PhoneNumber" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Amount" Type="money" Nullable="false" />
+    <Property Name="IDSupplier" Type="int" Nullable="false" />
+    <Property Name="Created" Type="datetime" Nullable="false" />
+    <Property Name="CreatedBy" Type="int" Nullable="false" />
+    <Property Name="IDCampaign" Type="int" Nullable="false" />
+    <Property Name="CampaignName" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'MyCompany.dbo.View_ExpendDetail' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="View_ExpendDetail">
+    <Key>
+      <PropertyRef Name="IDDetail" />
+      <PropertyRef Name="ProductName" />
+      <PropertyRef Name="Volume" />
+      <PropertyRef Name="Price" />
+      <PropertyRef Name="Amount" />
+      <PropertyRef Name="IDExpend" />
+      <PropertyRef Name="IDProduct" />
+    </Key>
+    <Property Name="IDDetail" Type="bigint" Nullable="false" />
+    <Property Name="ProductName" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="Weight" Type="int" />
+    <Property Name="Size" Type="varchar" MaxLength="20" />
+    <Property Name="Volume" Type="int" Nullable="false" />
+    <Property Name="Price" Type="money" Nullable="false" />
+    <Property Name="Amount" Type="money" Nullable="false" />
+    <Property Name="IDExpend" Type="bigint" Nullable="false" />
+    <Property Name="IDProduct" Type="int" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'MyCompany.dbo.View_Product' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="View_Product">
+    <Key>
+      <PropertyRef Name="IDProduct" />
+      <PropertyRef Name="ProductName" />
+      <PropertyRef Name="Price" />
+      <PropertyRef Name="CampaignName" />
+      <PropertyRef Name="SupplierName" />
+      <PropertyRef Name="PhoneNumber" />
+      <PropertyRef Name="IDSupplier" />
+      <PropertyRef Name="IDCampaign" />
+      <PropertyRef Name="IsActive" />
+    </Key>
+    <Property Name="IDProduct" Type="int" Nullable="false" />
+    <Property Name="ProductName" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="Price" Type="money" Nullable="false" />
+    <Property Name="Weight" Type="int" />
+    <Property Name="Size" Type="varchar" MaxLength="20" />
+    <Property Name="CampaignName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="SupplierName" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="PhoneNumber" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="IDSupplier" Type="int" Nullable="false" />
+    <Property Name="IDCampaign" Type="int" Nullable="false" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityContainer Name="MyCompanyModelStoreContainer">
+    <EntitySet Name="inExpend" EntityType="Self.inExpend" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="inExpendDetail" EntityType="Self.inExpendDetail" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="inPurchase" EntityType="Self.inPurchase" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblCampaign" EntityType="Self.tblCampaign" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblPartner" EntityType="Self.tblPartner" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblProduct" EntityType="Self.tblProduct" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblProductHistory" EntityType="Self.tblProductHistory" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblSupplier" EntityType="Self.tblSupplier" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblUser" EntityType="Self.tblUser" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="inPurchaseDetail" EntityType="Self.inPurchaseDetail" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [inPurchaseDetail].[IDDetail] AS [IDDetail], 
+    [inPurchaseDetail].[IDPurchase] AS [IDPurchase], 
+    [inPurchaseDetail].[IDProduct] AS [IDProduct], 
+    [inPurchaseDetail].[Volume] AS [Volume], 
+    [inPurchaseDetail].[Price] AS [Price], 
+    [inPurchaseDetail].[Amount] AS [Amount], 
+    [inPurchaseDetail].[Created] AS [Created], 
+    [inPurchaseDetail].[CreatedBy] AS [CreatedBy], 
+    [inPurchaseDetail].[Modified] AS [Modified], 
+    [inPurchaseDetail].[ModifiedBy] AS [ModifiedBy]
+    FROM [dbo].[inPurchaseDetail] AS [inPurchaseDetail]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="View_Expend" EntityType="Self.View_Expend" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [View_Expend].[IDExpend] AS [IDExpend], 
+    [View_Expend].[IDFaktur] AS [IDFaktur], 
+    [View_Expend].[SupplierName] AS [SupplierName], 
+    [View_Expend].[PhoneNumber] AS [PhoneNumber], 
+    [View_Expend].[Amount] AS [Amount], 
+    [View_Expend].[IDSupplier] AS [IDSupplier], 
+    [View_Expend].[Created] AS [Created], 
+    [View_Expend].[CreatedBy] AS [CreatedBy], 
+    [View_Expend].[IDCampaign] AS [IDCampaign], 
+    [View_Expend].[CampaignName] AS [CampaignName]
+    FROM [dbo].[View_Expend] AS [View_Expend]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="View_ExpendDetail" EntityType="Self.View_ExpendDetail" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [View_ExpendDetail].[IDDetail] AS [IDDetail], 
+    [View_ExpendDetail].[ProductName] AS [ProductName], 
+    [View_ExpendDetail].[Weight] AS [Weight], 
+    [View_ExpendDetail].[Size] AS [Size], 
+    [View_ExpendDetail].[Volume] AS [Volume], 
+    [View_ExpendDetail].[Price] AS [Price], 
+    [View_ExpendDetail].[Amount] AS [Amount], 
+    [View_ExpendDetail].[IDExpend] AS [IDExpend], 
+    [View_ExpendDetail].[IDProduct] AS [IDProduct]
+    FROM [dbo].[View_ExpendDetail] AS [View_ExpendDetail]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="View_Product" EntityType="Self.View_Product" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [View_Product].[IDProduct] AS [IDProduct], 
+    [View_Product].[ProductName] AS [ProductName], 
+    [View_Product].[Price] AS [Price], 
+    [View_Product].[Weight] AS [Weight], 
+    [View_Product].[Size] AS [Size], 
+    [View_Product].[CampaignName] AS [CampaignName], 
+    [View_Product].[SupplierName] AS [SupplierName], 
+    [View_Product].[PhoneNumber] AS [PhoneNumber], 
+    [View_Product].[IDSupplier] AS [IDSupplier], 
+    [View_Product].[IDCampaign] AS [IDCampaign], 
+    [View_Product].[IsActive] AS [IsActive]
+    FROM [dbo].[View_Product] AS [View_Product]</DefiningQuery>
+    </EntitySet>
+  </EntityContainer>
+</Schema>
