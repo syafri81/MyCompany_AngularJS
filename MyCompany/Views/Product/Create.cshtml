@@ -1,0 +1,114 @@
+﻿@model MyCompany.Models.tblProduct
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section Scripts {
+    <script>
+        $(function ()
+        {
+            var idProduct = $("#IDProduct").val();
+            if (idProduct > 0)
+            {
+                comboSupplier(idProduct);
+            }
+        });
+
+        function comboSupplier(idProduct) {
+            var campaignID = $("#IDCampaign").val();
+            $.post("/Product/ComboSupplier?campaignID=" + campaignID, function (combo) {
+                $("#IDSupplier").find('option').remove();
+                for (var i = 0; i < combo.length; i++) {
+                    $('#IDSupplier').append($('<option>').text(combo[i].label).attr('value', combo[i].val));
+                }
+                var idSupplier = @Model.IDSupplier;
+                console.log("IDSup:" + idSupplier);
+                $('#IDSupplier').val(idSupplier);
+            });
+        }
+    </script>
+}
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    <div class="row body-content">
+        <h3>Create / Edit Product</h3>
+        <hr />
+    </div>
+    <div class="form-horizontal margin-bottom-15">
+        @Html.ValidationSummary(true, "", new { @class = "alert alert-error margin-bottom-15 alert-danger box_button", style = "font-weight:600" })
+ 
+        <div class="form-group">
+            @Html.HiddenFor(model => model.IDProduct)
+            @Html.LabelFor(model => model.ProductName, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.ProductName, new { htmlAttributes = new { @class = "form-control uppercase", style = "max-width:50%;width:50%", autocomplete = "off" } })
+                @Html.ValidationMessageFor(model => model.ProductName, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model =>  model.Price, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Price, new { htmlAttributes = new { @class = "form-control", type = "number", style = "max-width:15%;width:15%" } })
+                @Html.ValidationMessageFor(model => model.Weight, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Weight, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Weight, new { htmlAttributes = new { @class = "form-control", type = "number", style = "max-width:15%;width:15%" } })
+                @Html.ValidationMessageFor(model => model.Weight, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Size, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Size, new { htmlAttributes = new { @class = "form-control", style = "max-width:15%;width:15%" } })
+                @Html.ValidationMessageFor(model => model.Size, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        @{
+            if (Model.IDProduct != 0)
+            {
+                <div class="form-group">
+                    @Html.LabelFor(model => model.IsActive, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        <div class="checkbox">
+                            @Html.EditorFor(model => model.IsActive)
+                            @Html.ValidationMessageFor(model => model.IsActive, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+            }
+        }
+
+        <div class="form-group">
+            @Html.Label("Campaign", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("IDCampaign", null, new { @class="form-control", type = "number", style = "max-width:50%;width:50%", onchange="comboSupplier(0)" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.Label("Supplier", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <select id="IDSupplier" name="IDSupplier" class="form-control" style = "max-width:50%;width:50%"></select>
+            </div>
+        </div>
+
+
+        <div class="form-group margin-top-15">
+            <div class="col-md-offset-2 col-md-10">
+                <button type="submit" class="btn btn-info box_button"><i class="fa fa-save fa-3x"></i></button>
+                <button type="button" onclick="window.location.href='@ViewBag.backPage'" class="btn btn-info box_button"><i class="fa fa-refresh fa-3x"></i></button>
+            </div>
+        </div>
+    </div>
+}

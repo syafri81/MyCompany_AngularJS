@@ -1,0 +1,89 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section Scripts {
+    <script>
+        deleteData = function ()
+        {
+            $("#modaldelete").modal();
+        }
+    </script>
+}
+<div class="row body-content">
+    <div class="pull-right">
+        <button type="button" class="btn btn-danger box_button margin-top-10" onclick="window.location.href='/Title/Create'" title="Add Purchase"><i class="fa fa-cart-plus fa-2x"></i></button>
+    </div>
+    <h2>Purchase</h2>    
+    <hr />
+</div>
+<div class="row body-content">
+    <div class="col-lg-12 body-zero">
+        <div class="col-lg-6 body-zero">
+            <div class="input-group">
+                <input type="text" class="form-control" style="width:100%;max-width:100%">
+                <span class="input-group-btn">
+                    <button class="btn btn-danger" type="button"><i class="fa fa-search"></i></button>
+                </span>
+            </div>
+        </div>
+    </div>    
+</div>
+<div class="row body-content margin-top-10 margin-bottom-15">
+    <div class="panel panel-primary box_button" style="margin-bottom:0px">
+        <div class="panel-heading box_button" style="background-color:#009688">
+            <h5 class="panel-title">000111222 / Rani Khairani</h5>
+        </div>
+        <div class="panel-body">
+            <div class="col-xs-12 body-zero">
+                <div class="col-xs-9 body-zero">
+                    <div class="col-xs-12 body-zero">
+                        <div class="col-xs-4 body-zero">10/10/2017</div>
+                        <div class="col-xs-4 body-zero">001.0001.18</div>
+                        <div class="col-xs-4 body-zero">
+                            <div class="pull-right">
+                                <span class="badge pull-right" style="font-size:14px;background-color:#CFDFF3;color:black;margin-top:5px">230.000.000,-</span>                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-3 body-zero">
+                    <div class="pull-right">
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-primary box_button btn-crud" title="detail"><i class="fa fa-list fa-1halfx"></i></button>
+                            <button type="button" class="btn btn-primary box_button btn-crud" title="edit"><i class="fa fa-edit fa-1halfx"></i></button>
+                            <button type="button" onclick="deleteData()" class="btn btn-primary box_button btn-crud" title="remove"><i class="fa fa-remove fa-1halfx"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="panel panel-primary box_button" style="margin-bottom:0px;border-top:none">
+        <div class="panel-body">
+            <div class="col-xs-12 body-zero">
+                <div class="col-xs-9 body-zero">
+                    <div class="col-xs-12 body-zero">
+                        <div class="col-xs-4 body-zero">10/10/2017</div>
+                        <div class="col-xs-4 body-zero">001.0001.18</div>
+                        <div class="col-xs-4 body-zero">
+                            <div class="pull-right">
+                                <span class="badge pull-right" style="font-size:14px;background-color:#CFDFF3;color:black;margin-top:5px">230.000.000,-</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-3 body-zero">
+                    <div class="pull-right">
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-primary box_button btn-crud" title="detail"><i class="fa fa-list fa-1halfx"></i></button>
+                            <button type="button" class="btn btn-primary box_button btn-crud" title="edit"><i class="fa fa-edit fa-1halfx"></i></button>
+                            <button type="button" class="btn btn-primary box_button btn-crud" title="remove"><i class="fa fa-remove fa-1halfx"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

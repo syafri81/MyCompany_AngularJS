@@ -1,0 +1,83 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My Company</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/modernizr")
+    <script type="text/javascript" src="~/Scripts/angular/angular.min.js"></script>
+    <script type="text/javascript" src="~/Scripts/Form/Master.js"></script>
+    <script src="~/Scripts/accounting.min.js"></script>
+</head>
+<body>
+    @*<div class="navbar navbar-default navbar-fixed-top">*@
+@if (Session[Global.UserID] != null)
+{
+    <div class="navbar navbar-inverse navbar-fixed-top" style="background-color:#E9F1EC">
+        <div class="row body-content">
+            <div class="navbar-header col-lg-2">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("My Company", "Index", "Home", new { area = "" }, new { @class = "navbar-brand", style="font-weight:500" })
+            </div>
+            <div class="navbar-collapse collapse">
+                <div id="nav_menutop">
+                    <ul class="nav navbar-nav">
+                        <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                        <li>@Html.ActionLink("About", "About", "Home")</li>
+                        <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                    </ul>
+                </div>                
+                <div>
+                    @Html.Partial("_LoginPartial")
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row body-content">
+        <div class="col-lg-12 body-zero">
+            <div id="menubar" class="col-lg-2 body-zero" align="center">
+                <ul class="nav nav-pills nav-stacked">
+                    <li><a href="#"><img src="~/Content/Icon/profile3.png" alt="profile" style="height:85px;padding-top:8px" />
+                        <br /><label style="padding-top:5px;">@Session[Global.DisplayName]</label></a></li>
+                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                    <li>@Html.ActionLink("About", "About", "Home")</li>
+                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                </ul>
+            </div>
+            <div id="bodyplace" class="col-lg-10" style="padding-left:0px">
+                <div class="jumbotron" style="padding:5px 20px;background-color:#CFDFF3">
+                    @RenderBody()
+                    @{
+                        Html.RenderPartial("ControlDelete");
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row body-content">
+        <footer>
+            <hr />
+            <p>&copy; @DateTime.Now.Year - My Company</p>
+        </footer>
+    </div>
+
+                        }
+                        else
+                        {
+                            @RenderBody()
+    @Html.Partial("_LoginPartial");
+                            
+                        }
+
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

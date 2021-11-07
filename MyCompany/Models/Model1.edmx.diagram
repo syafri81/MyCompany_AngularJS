@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="ed70dda3d19e4525a81547fb7e8b1585" Name="Diagram1">
+        <EntityTypeShape EntityType="MyCompanyModel.inPurchase" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MyCompanyModel.inPurchaseDetail" Width="1.5" PointX="2.5" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MyCompanyModel.tblPartner" Width="1.5" PointX="4.25" PointY="0.75" />
+        <EntityTypeShape EntityType="MyCompanyModel.tblUser" Width="1.5" PointX="2.375" PointY="4.75" />
+        <EntityTypeShape EntityType="MyCompanyModel.inExpend" Width="1.5" PointX="7.75" PointY="0.75" />
+        <EntityTypeShape EntityType="MyCompanyModel.tblCampaign" Width="1.5" PointX="4.125" PointY="4.75" />
+        <EntityTypeShape EntityType="MyCompanyModel.inExpendDetail" Width="1.5" PointX="6" PointY="0.75" />
+        <EntityTypeShape EntityType="MyCompanyModel.tblProductHistory" Width="1.5" PointX="8.375" PointY="3.75" />
+        <EntityTypeShape EntityType="MyCompanyModel.tblProduct" Width="1.5" PointX="6" PointY="4.75" />
+        <EntityTypeShape EntityType="MyCompanyModel.View_Product" Width="1.5" PointX="0.75" PointY="8.75" />
+        <EntityTypeShape EntityType="MyCompanyModel.tblSupplier" Width="1.5" PointX="0.5" PointY="4.75" />
+        <EntityTypeShape EntityType="MyCompanyModel.View_Expend" Width="1.5" PointX="2.5" PointY="7.75" />
+        <EntityTypeShape EntityType="MyCompanyModel.View_ExpendDetail" Width="1.5" PointX="4.25" PointY="7.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

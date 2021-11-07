@@ -1,0 +1,64 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section Scripts {
+    <script src="~/Scripts/Form/SupplierIndex.js"></script>
+}
+<div class="row body-content">
+    <div class="pull-right">
+        <button type="button" class="btn btn-danger box_button" style="margin-top:10px" onclick="window.location.href='@ViewBag.createPage'" title="Add Purchase"><i class="fa fa-user-plus fa-3x"></i></button>
+    </div>
+    <h2>Supplier</h2>
+    <hr />
+</div>
+<div ng-app="MyApp">
+    <div ng-controller="IndexDataCtrl">
+        <div class="row body-content">
+            <div class="col-lg-12 body-zero">
+                <div class="col-lg-6 body-zero">
+                    <div class="input-group">
+                        <input type="text" ng-model="search.SupplierName" class="form-control box_button" style="width:100%;max-width:100%">
+                        <span class="input-group-btn">
+                            <button class="btn btn-danger" type="button"><i class="fa fa-search fa-2x"></i></button>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row body-content margin-top-10">
+            <table class="table">
+                <thead style="background-color: #009688;color:white;font-weight:600">
+                    <tr>
+                        <th>#</th>
+                        <th style="width:60%"><i class="fa fa-user-circle"></i></th>
+                        <th style="width:20%"><i class="fa fa-phone-square"></i></th>
+                        <th style="width:5%"><i class="fa fa-hand-o-down"></i></th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-show="IndexData.length==0">
+                        <td colspan="4"><label>No records.</label></td>
+                    </tr>
+                    <tr ng-repeat="m in IndexData | filter:search">
+                        <td>{{$index + 1}}</td>
+                        <td>{{m.SupplierName}}</td>
+                        <td>{{m.PhoneNumber}}</td>
+                        <td>
+                            <input type="checkbox" id="chk_{{m.IDSupplier}}" ng-click="toggleActive()" checked ng-if="m.IsActive==true" />
+                            <input type="checkbox" id="chk_{{m.IDSupplier}}" ng-click="toggleActive()" ng-if="m.IsActive==false" />
+
+                        </td>
+                        <td align="right">                            
+                            <button type="button" class="btn btn-cyan box_button btn-crud" title="detail"><i class="fa fa-list fa-2x"></i></button>
+                            <button type="button" ng-click="edit()" class="btn btn-cyan box_button btn-crud" title="edit"><i class="fa fa-edit fa-2x"></i></button>
+                            <button type="button" ng-click="delete()" class="btn btn-cyan box_button btn-crud" title="remove"><i class="fa fa-trash fa-2x"></i></button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,130 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+@section Scripts {
+<script src="~/Scripts/Form/HomeIndex.js"></script>
+    <script>
+        remove = function ()
+        {
+            $("#modaldelete").modal();
+        }
+
+    </script>
+}
+
+<div ng-app="MyApp">
+    <div ng-controller="IndexDataCtrl">
+        <div class="row" style="margin-top:30px">
+            <div class="col-lg-12">
+                <div ng-repeat="m in IndexData" class="col-sm-6 col-md-3">
+                    <a href="#" ng-click="goToCampaign()">
+                        <div align="center" class="thumbnail">
+                            <div ng-if="m.val==1">
+                                <img src="~/Content/Icon/HNI.png" class="home-image" />
+                            </div>
+                            <div ng-if="m.val==2">
+                                <img src="~/Content/Icon/computer_store.png" class="home-image" />
+                            </div>
+                            <div ng-if="m.val==3">
+                                <img src="~/Content/Icon/laundry_shop.png" class="home-image" />
+                            </div>
+                            <div ng-if="m.val==4">
+                                <img src="~/Content/Icon/car_wash.png" class="home-image" />
+                            </div>  
+                            <div class="caption">
+                                <h4>{{m.label}}</h4>
+                            </div>                          
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@*<div class="row" style="margin-top:30px">
+    <div id="div_home" class="col-lg-12">
+        <div class="col-sm-6 col-md-3">
+            <a href="#">
+                <div align="center" class="thumbnail">
+                    <img src="~/Content/Icon/HNI.png" style="width:150px;height:150px" />
+                    <div class="caption">
+                        <h4>Halal Network Indonesia</h4>
+                    </div>
+                </div>
+            </a>            
+        </div>
+        <div class="col-sm-6 col-md-3">
+            <a href="#">
+                <div align="center" class="thumbnail">
+                    <img src="~/Content/Icon/computer_store.png" style="width:150px;height:150px" />
+                    <div class="caption">
+                        <h4>Computer Store</h4>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="col-sm-6 col-md-3">
+            <a href="#">
+                <div align="center" class="thumbnail">
+                    <img src="~/Content/Icon/HNI.png" style="width:200px;height:200px" />
+                    <div class="caption">
+                        <h4>Halal Network Indonesia</h4>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="col-sm-6 col-md-3">
+            <a href="#">
+                <div align="center" class="thumbnail">
+                    <img src="~/Content/Icon/HNI.png" style="width:200px;height:200px" />
+                    <div class="caption">
+                        <h4>Halal Network Indonesia</h4>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div>
+</div>*@
+
+<div class="row">
+    <button class="btn btn-amber">Amber</button>
+    <button class="btn btn-black">Black</button>
+    <button class="btn btn-blue">Blue</button>
+    <button class="btn btn-blue-grey">Blue Gray</button>
+    <button class="btn btn-brown">Brown</button>
+    <button class="btn btn-cyan">Cyan</button>
+    <button class="btn btn-danger">Danger</button>
+    <button class="btn btn-dark">Dark</button>
+    <button class="btn btn-dark-green">Dark Green</button>
+    <button class="btn btn-deep-orange">Deep Orange</button>
+    <button class="btn btn-deep-purple">Deep Purple</button>
+    <button class="btn btn-default">Default</button>
+    <button class="btn btn-elegant">Elegant</button>
+    <button class="btn btn-green">Green</button>
+    <button class="btn btn-grey">Grey</button>
+    <button class="btn btn-indigo">Indigo</button>
+    <button class="btn btn-info">Info</button>
+    <button class="btn btn-light">Light</button>
+    <button class="btn btn-light-blue">Light Blue</button>
+    <button class="btn btn-light-green">Light Green</button>
+    <button class="btn btn-lime">Lime</button>
+    <button class="btn btn-link">Link</button>
+    <button class="btn btn-md">md</button>
+    <button class="btn btn-mdb-color">mdb color</button>
+    <button class="btn btn-orange">Orange</button>    
+    <button class="btn btn-outline-amber">Outline Amber</button>
+    <button class="btn btn-outline-black">Outline Black</button>
+    <button class="btn btn-outline-blue">Outline Blue</button>
+    <button class="btn btn-outline-blue-grey">Outline Blue Grey</button>
+</div>
+<div class="btn btn-danger" onclick="remove()">Remove</div>
+<div class="row">
+    <ul id="tab_member" class="nav nav-pills nav-stacked">
+        <li>
+            <a href="#">Button 1</a>
+        </li>
+        <li>
+            <a href="#">Button 2</a>
+        </li>
+    </ul>
+</div>
